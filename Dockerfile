@@ -4,9 +4,11 @@ WORKDIR /app
 
 COPY . .
 
-# Variável para pular o Chromium download
-ENV PUPPETEER_SKIP_DOWNLOAD=true
+# Corrige permissões e executa a instalação como o usuário correto
+USER root
+RUN chown -R pptruser:pptruser /app
 
+USER pptruser
 RUN echo "▶️ INICIANDO INSTALAÇÃO" \
   && npm install --omit=optional --no-fund --no-audit --loglevel verbose \
   && echo "✅ INSTALAÇÃO CONCLUÍDA"
