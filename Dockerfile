@@ -4,9 +4,8 @@ WORKDIR /app
 
 COPY . .
 
-# ⬅️ ESSA LINHA É ESSENCIAL AGORA
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-
-RUN npm install --omit=optional
+RUN echo "▶️ INICIANDO INSTALAÇÃO" \
+  && npm install --omit=optional --loglevel verbose \
+  && echo "✅ INSTALAÇÃO CONCLUÍDA"
 
 CMD ["node", "pai.js"]
