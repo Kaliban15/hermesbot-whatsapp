@@ -4,6 +4,7 @@
   "main": "pai.js",
   "scripts": {
     "start": "node pai.js",
+    "postinstall": "echo '⚡ Pulando download do Chromium' && exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
